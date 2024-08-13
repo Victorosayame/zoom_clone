@@ -8,6 +8,7 @@ import { useRouter } from 'next/navigation';
 const EndCallButton = () => {
   //we want to get access to the information about the call
   const call = useCall();
+  const router = useRouter();
 
   const { useLocalParticipant } = useCallStateHooks();
   //we can get access into the localparticipant
@@ -18,7 +19,6 @@ const EndCallButton = () => {
   if(!isMeetingOwner) return null;
 
   //
-  const router = useRouter();
   return (
     <Button onClick={async () => {
       await call.endCall();

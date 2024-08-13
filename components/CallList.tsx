@@ -67,14 +67,14 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
 
     //we call it if only type is equal to recordings
     if(type === "recordings") fetchRecordings();
-  }, [type, callRecordings]);
+  }, [type, callRecordings, toast]);
   
-  if(isLoading) return <Loader />
   
   //6.6:
   const calls = getCalls();
   const noCallsMessage = getNoCallsMessage();
-
+  
+  if(isLoading) return <Loader />
 
   return (
     <div className='grid grid-cols-1 gap-5 xl:grid-cols-2'>
